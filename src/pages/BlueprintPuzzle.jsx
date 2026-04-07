@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { AnimatePresence, motion } from 'motion/react'
+import { containerVariants, lineVariants } from '../components/text-fade-in'
 
 import R1C1 from '../assets/blueprint/1-1.png'
 import R1C2 from '../assets/blueprint/1-2.png'
@@ -31,6 +33,8 @@ import R5C3 from '../assets/blueprint/5-3.png'
 import R5C4 from '../assets/blueprint/5-4.png'
 import R5C5 from '../assets/blueprint/5-5.png'
 import R5C6 from '../assets/blueprint/5-6.png'
+import BlueprintNote from '../assets/notes/blueprint-note.png'
+import PopupNote from '../assets/notes/popup-note.png'
 
 const blueprintGrid = [
   R1C1, R1C2, R1C3, R1C4, R1C5, R1C6,
@@ -67,14 +71,45 @@ export function BlueprintPuzzle({ onSolved }) {
     }
   }, [rotations, solved, onSolved])
 
+  const lines = [
+    'Rotating the mansion blueprint shows',
+    'how the rooms and hallways connect. The',
+    'layout is starting to make sense...'
+  ]
+
   return (
     <div className='puzzle'>
-      {solved && <NavLink to='/' end> back to evidence board </NavLink>}
+      <div className='ui'>
+        <img src={BlueprintNote} className='title' />
+        <img src={PopupNote} className='note'/>
+
+        {!solved ?
+          <div className='text'>
+            Rotate and align the rooms on this blueprint to understand the mansion’s structure.
+          </div>
+          :
+          <motion.div className='text'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div variants={containerVariants} initial='hidden' animate='visible'>
+              {lines.map((line, i) => (
+                <motion.div key={i} variants={lineVariants}>
+                  {line}
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <NavLink to='/' end className='back'> Back to evidence board -&gt; </NavLink>
+          </motion.div>
+        }
+      </div>
 
       {/* blueprint rotation puzzle */}
       <div className='blueprint-grid'>
         {blueprintGrid.map((img, i) => (
-          <img key={i} src={img} className='cell' onClick={() => handleClick(i)} style={{ transform: `rotate(${rotations[i]}deg)`}} />
+          <img key={i} src={img} className='cell' onClick={() => !solved && handleClick(i)} style={{ transform: `rotate(${rotations[i]}deg)`}} />
         ))}
       </div>
     </div>

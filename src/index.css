@@ -1,6 +1,14 @@
+@font-face {
+  font-family: 'Biro';
+  src: url('assets/fonts/biro-script-plus.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   overflow: hidden;
+
+  font-family: 'Biro';
+  font-size: 1.25rem;
 }
 
 a {
@@ -17,7 +25,10 @@ a {
   height: 100vh;
   width: 100vw;
 
-  background-image: url("./assets/corkboard.png");
+  background-image: url('./assets/corkboard.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .evidence-board {
@@ -29,7 +40,7 @@ a {
   align-items: center;
   gap: 1rem;
 
-  background-image: url("./assets/evidence.png");
+  background-image: url('./assets/evidence.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -51,15 +62,64 @@ a {
   }
 }
 
+.back {
+  color: #c32221;
+
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
 .puzzle {
   height: 100%;
   width: 100%;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8rem;
+
+  .ui {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+      width: 12rem;
+
+      position: absolute;
+      z-index: 2;
+      
+      margin-top: -25rem;
+      margin-left: -14rem;
+    }
+
+    .note {
+      width: 25rem;
+
+      position: absolute;
+      z-index: 1;
+    }
+
+    .text {
+      width: 22rem;
+      
+      z-index: 3;
+
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      text-align: center;
+    }
+  }
 }
+
 
 .blueprint-grid {
   display: grid;
