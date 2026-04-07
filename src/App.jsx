@@ -1,5 +1,6 @@
 import './index.css'
 
+import { useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 
@@ -25,13 +26,23 @@ function MotionDiv({ children }) {
 function App() {
   const location = useLocation();
 
+  const [solved, setSolved] = useState({
+    connect: false,
+    blueprint: false,
+    letter: false
+  });
+
+  const markSolved = (id) => {
+    setSolved(prev => ({ ...prev, [id]: true }));
+  };
+
   return (
     <div className='app'>
       <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={ <MotionDiv> <Home /> </MotionDiv> } />
+          <Route path="/" element={ <MotionDiv> <Home solved={solved} /> </MotionDiv> } />
           <Route path="/connect" element={ <MotionDiv> <ConnectPuzzle /> </MotionDiv> } />
-          <Route path="/blueprint" element={ <MotionDiv> <BlueprintPuzzle /> </MotionDiv> } />
+          <Route path="/blueprint" element={ <MotionDiv> <BlueprintPuzzle onSolved={() => markSolved("blueprint")} /> </MotionDiv> } />
           <Route path="/letter" element={ <MotionDiv> <LetterPuzzle /> </MotionDiv> } />
         </Routes>
       </AnimatePresence>
