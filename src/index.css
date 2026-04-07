@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+
+  background-image: url("./assets/corkboard.png");
+}
+
+.evidence-board {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  background-image: url("./assets/evidence.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .link {
+    height: auto;
+    width: 12%;
+    max-width: 175px;
+  }
+
+  .note {
+    width: 100%;
+    transition: transform 0.25s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: rotate(5deg);
+    }
+  }
+}
+
+.puzzle {
+  height: 100%;
+  width: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
