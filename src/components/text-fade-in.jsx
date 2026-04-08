@@ -2,7 +2,7 @@ export const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 2,
+      staggerChildren: 1.8,
       delayChildren: 0.8,
     }
   }
