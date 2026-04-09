@@ -41,7 +41,7 @@ function App() {
       <AnimatePresence mode='wait'>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={ <MotionDiv> <Home solved={solved} /> </MotionDiv> } />
-          <Route path="/connect" element={ <MotionDiv> <ConnectPuzzle /> </MotionDiv> } />
+          <Route path="/connect" element={ <MotionDiv> <ConnectPuzzle onSolved={() => markSolved("connect")} /> </MotionDiv> } />
           <Route path="/blueprint" element={ <MotionDiv> <BlueprintPuzzle onSolved={() => markSolved("blueprint")} /> </MotionDiv> } />
           <Route path="/letter" element={ <MotionDiv> <LetterPuzzle /> </MotionDiv> } />
         </Routes>

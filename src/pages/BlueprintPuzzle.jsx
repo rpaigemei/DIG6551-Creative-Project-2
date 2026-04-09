@@ -78,7 +78,7 @@ export function BlueprintPuzzle({ onSolved }) {
   ]
 
   return (
-    <div className='puzzle'>
+    <div className='puzzle-page'>
       <div className='ui'>
         <img src={BlueprintNote} className='title' />
         <img src={PopupNote} className='note'/>

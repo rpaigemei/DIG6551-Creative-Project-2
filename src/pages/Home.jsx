@@ -10,9 +10,13 @@ import ConnectNoteSolved from '../assets/notes/connect-note-solved.png'
 export function Home({ solved }) {
   return (
     <div className='evidence-board'>
-      <NavLink to='connect' className='link'>
-        <img src={ConnectNote} className='note' />
-      </NavLink>
+      {solved.connect ?
+        <img src={ConnectNoteSolved} className='link note' />
+        :
+        <NavLink to='connect' className='link'>
+          <img src={ConnectNote} className='note' />
+        </NavLink>
+      }
 
       {solved.blueprint ?
         <img src={BlueprintNoteSolved} className='link note' />
