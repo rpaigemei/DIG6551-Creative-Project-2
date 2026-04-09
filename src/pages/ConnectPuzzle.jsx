@@ -143,16 +143,16 @@ export function ConnectPuzzle({ onSolved }) {
         <div className='clues'>
           {shuffledClues.map((clue) => (
             <div className={`clue ${clue.selected && 'selected'} ${clue.connected && 'connected'}`} onClick={() => !clue.connected && handleClick(clue)}>
-              {clue.note}
+              <div className='text'>{clue.note}</div>
             </div>
           ))}
         </div>
 
         <div className='buttons'>
-          <div className={`button ${selectedClues.length > 0 && 'active'}`} onClick={() => selectedClues.length > 0 && handleClear()}>
+          <div id='btn-1' className={`button ${selectedClues.length > 0 && 'active'}`} onClick={() => selectedClues.length > 0 && handleClear()}>
             Deselect All
           </div>
-          <div className={`button ${selectedClues.length == 4 && 'active'}`} onClick={() => selectedClues.length == 4 && handleSubmit()}>
+          <div id='btn-2' className={`button ${selectedClues.length == 4 && 'active'}`} onClick={() => selectedClues.length == 4 && handleSubmit()}>
             Submit
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { AnimatePresence, motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { containerVariants, lineVariants } from '../components/text-fade-in'
 
 import R1C1 from '../assets/blueprint/1-1.png'
@@ -72,9 +72,10 @@ export function BlueprintPuzzle({ onSolved }) {
   }, [rotations, solved, onSolved])
 
   const lines = [
-    'Rotating the mansion blueprint shows how',
-    'the rooms and hallways connect. There',
-    'seems to be a space here that shouldn’t be…'
+    'Rotating the mansion blueprint',
+    'shows how the rooms and hallways',
+    'connect. There seems to be a space',
+    'here that shouldn’t be…'
   ]
 
   return (
