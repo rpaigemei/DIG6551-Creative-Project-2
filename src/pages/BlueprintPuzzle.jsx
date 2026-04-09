@@ -72,9 +72,9 @@ export function BlueprintPuzzle({ onSolved }) {
   }, [rotations, solved, onSolved])
 
   const lines = [
-    'Rotating the mansion blueprint shows',
-    'how the rooms and hallways connect. The',
-    'layout is starting to make sense...'
+    'Rotating the mansion blueprint shows how',
+    'the rooms and hallways connect. There',
+    'seems to be a space here that shouldn’t be…'
   ]
 
   return (
