@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Biro';
-  src: url('assets/fonts/biro-script-plus.ttf') format('truetype');
+  src: url('assets/fonts/BiroScript.ttf') format('truetype');
 }
 :root {
   --color-1: #c32221;
-  --color-2: #444444;
+  --color-2: #5a9947;
 }
 
 body {
@@ -122,6 +122,11 @@ a {
 
       text-align: center;
     }
+
+    .reveals {
+      min-height: 14rem;
+      justify-content: top;
+    }
   }
 }
 
@@ -140,7 +145,8 @@ a {
 .puzzle {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .clues {
@@ -179,13 +185,21 @@ a {
   }
 
   .selected {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(-3deg);
     color: var(--color-1);
   }
 
   .connected {
-    color: green;
+    opacity: 75%;
+    color: var(--color-2);
   }
+}
+
+.reveals {
+  min-height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
 }
 
 .buttons {
@@ -217,6 +231,11 @@ a {
 
     &:hover {
       cursor: pointer;
+    }
+
+    .text {
+      padding-right: .25rem;
+      padding-top: .25rem;
     }
   }
 
