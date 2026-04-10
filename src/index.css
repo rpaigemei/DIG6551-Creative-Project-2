@@ -8,16 +8,25 @@
   src: url('assets/fonts/FiraCode.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Phont';
+  src: url('assets/fonts/Phont.ttf') format('truetype');
+}
+
 :root {
   --color-1: #c32221;
   --color-2: #5a9947;
+
+  --font-main: 'Biro';
+  --font-code: 'Fira';
+  --font-letter: 'Phont';
 }
 
 body {
   margin: 0;
   overflow: hidden;
 
-  font-family: 'Biro';
+  font-family: var(--font-main);
   font-size: 1.5rem;
   line-height: 1.5;
 }
@@ -253,23 +262,23 @@ a {
 }
 
 .letter {
-  max-width: 40rem;
+  width: 40rem;
   
-  padding: 1rem;
+  padding: 1.5rem;
 
-  background: white;
+  background-image: url("./assets/letter-paper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  .br {
+  color: black;
+  font-family: var(--font-letter);
+
+  .p {
     padding-bottom: 1rem;
   }
 
   .clue {
-    padding: 0.25rem 0.5rem;
-    background-color: rgba(196, 33, 33, 0.15);
-
     color: var(--color-1);
-    font-family: 'Fira';
-    font-size: 1rem;
   }
 }
 
@@ -277,10 +286,21 @@ a {
   all: unset;
 
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
+  padding: 1rem 2rem;
   
-  background-color: white;
+  background-image: url("./assets/input-paper.png");
+  background-size: 100% 100%;
 
-  color: #c32221;
-  font-family: 'Biro';
+  color: var(--color-1);
+  font-family: var(--font-main);
+
+  &::placeholder {
+    color: #6d635a;
+  }
+}
+
+.disabled {
+  opacity: 70%;
 }
