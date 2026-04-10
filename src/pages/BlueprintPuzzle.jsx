@@ -71,7 +71,7 @@ export function BlueprintPuzzle({ onSolved }) {
       {/* blueprint rotation puzzle */}
       <div className="blueprint-grid">
         {blueprintGrid.map((img, i) => (
-          <img key={i} src={img} className="cell" onClick={() => !solved && handleClick(i)} style={{ transform: `rotate(${rotations[i]}deg)`}} />
+          <img key={i} src={img} className={`cell ${solved && "solved"}`} onClick={() => !solved && handleClick(i)} style={{ transform: `rotate(${rotations[i]}deg)`}} />
         ))}
       </div>
     </div>

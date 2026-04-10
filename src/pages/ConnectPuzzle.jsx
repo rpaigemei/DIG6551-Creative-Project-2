@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom"
 import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
 import ConnectNote from "../assets/images/notes/connect.png"
-import PopupNote from "../assets/images/paper/ui.png"
+import Note from "../assets/images/paper/ui.png"
+import CluePaper from "../assets/images/paper/clue.png"
 
 const categories = [
   {id: 0, category: "Property must be abandoned"},
@@ -152,7 +153,7 @@ export function ConnectPuzzle({ onSolved }) {
     <div className="puzzle-page">
       <div className="ui">
         <img src={ConnectNote} className="title" />
-        <img src={PopupNote} className="note"/>
+        <img src={Note} className="note"/>
 
         {lines.length === 0
           ? <div className="text"> Connect the related clues on the board to figure out which pieces of evidence belong together. </div>
@@ -174,8 +175,9 @@ export function ConnectPuzzle({ onSolved }) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8 }}
+                  className="back"
                 >
-                  <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
+                  <NavLink to="/" end> Back to evidence board -&gt; </NavLink>
                 </motion.div>
               }
             </motion.div>
@@ -184,7 +186,7 @@ export function ConnectPuzzle({ onSolved }) {
 
       {/* connect strings puzzle */}
       <div className="puzzle">
-        <div className="clues">
+        <div className="connect-clues">
           {shuffledClues.map((clue) => (
             <motion.div
               variants={{...shake, ...pulse}}

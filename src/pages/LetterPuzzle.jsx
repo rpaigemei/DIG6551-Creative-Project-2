@@ -92,7 +92,7 @@ export function LetterPuzzle({ onSolved }) {
             >
               <motion.div variants={containerVariants} initial="hidden" animate="visible">
                 {lines.map((line, i) => (
-                  <motion.div key={i} variants={lineVariants} style={{ lineHeight: 1.61}}>
+                  <motion.div key={i} variants={lineVariants}>
                     {line}
                   </motion.div>
                 ))}
@@ -106,14 +106,16 @@ export function LetterPuzzle({ onSolved }) {
       {/* connect strings puzzle */}
       <div className="puzzle">
         <div className="letter">
-          <div className="p">
-            Hello my {checkSolved(0)},
-          </div>
-          <div className="p">
-            I can’t stop thinking about {checkSolved(1)}... I can hardly wait. I’ve finally found a place that’s completely ours, a {checkSolved(2)} little spot where no one else will bother us. Just for the two of us, finally. When you get to the {checkSolved(3)}, go {checkSolved(4)}stairs, down the {checkSolved(5)} hallway, and through the {checkSolved(6)}. There’s a small room tucked away that most people would never notice. I found it by accident and kept thinking how {checkSolved(7)} it would be for us. I keep imagining us there, {checkSolved(8)}, talking, just having a world of our own.
-          </div>
-          <div>
-            I’ll be {checkSolved(9)}ing for you.
+          <div className="paper">
+            <div className="p">
+              Hello my {checkSolved(0)},
+            </div>
+            <div className="p">
+              I can’t stop thinking about {checkSolved(1)}... I can hardly wait. I’ve finally found a place that’s completely ours, a {checkSolved(2)} little spot where no one else will bother us. Just for the two of us, finally. When you get to the {checkSolved(3)}, go {checkSolved(4)}stairs, down the {checkSolved(5)} hallway, and through the {checkSolved(6)}. There’s a small room tucked away that most people would never notice. I found it by accident and kept thinking how {checkSolved(7)} it would be for us. I keep imagining us there, {checkSolved(8)}, talking, just having a world of our own.
+            </div>
+            <div>
+              I’ll be {checkSolved(9)}ing for you.
+            </div>
           </div>
         </div>
 
