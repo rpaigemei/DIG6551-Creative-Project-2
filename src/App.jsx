@@ -43,7 +43,7 @@ function App() {
           <Route path="/" element={ <MotionDiv> <Home solved={solved} /> </MotionDiv> } />
           <Route path="/connect" element={ <MotionDiv> <ConnectPuzzle onSolved={() => markSolved("connect")} /> </MotionDiv> } />
           <Route path="/blueprint" element={ <MotionDiv> <BlueprintPuzzle onSolved={() => markSolved("blueprint")} /> </MotionDiv> } />
-          <Route path="/letter" element={ <MotionDiv> <LetterPuzzle /> </MotionDiv> } />
+          <Route path="/letter" element={ <MotionDiv> <LetterPuzzle onSolved={() => markSolved("letter")} /> </MotionDiv> } />
         </Routes>
       </AnimatePresence>
     </div>

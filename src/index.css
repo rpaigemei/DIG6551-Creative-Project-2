@@ -2,6 +2,12 @@
   font-family: 'Biro';
   src: url('assets/fonts/BiroScript.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Fira';
+  src: url('assets/fonts/FiraCode.ttf') format('truetype');
+}
+
 :root {
   --color-1: #c32221;
   --color-2: #5a9947;
@@ -244,4 +250,37 @@ a {
     color: var(--color-1);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   }
+}
+
+.letter {
+  max-width: 40rem;
+  
+  padding: 1rem;
+
+  background: white;
+
+  .br {
+    padding-bottom: 1rem;
+  }
+
+  .clue {
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(196, 33, 33, 0.15);
+
+    color: var(--color-1);
+    font-family: 'Fira';
+    font-size: 1rem;
+  }
+}
+
+.input {
+  all: unset;
+
+  width: 100%;
+  box-sizing: border-box;
+  
+  background-color: white;
+
+  color: #c32221;
+  font-family: 'Biro';
 }
