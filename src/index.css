@@ -63,7 +63,7 @@ a {
   align-items: center;
 
   .board {
-    height: 55rem;
+    height: 100%;
 
     position: absolute;
     z-index: 0;
