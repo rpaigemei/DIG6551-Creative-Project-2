@@ -81,26 +81,25 @@ export function LetterPuzzle({ onSolved }) {
         <img src={LetterNote} className="title" />
         <img src={PopupNote} className="note"/>
 
-        {!solved ?
-          <div className="text">
-            Read the letter carefully and use the clues to fill in missing details and uncover the secret message.
-          </div>
-          :
-          <motion.div className="text"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div variants={containerVariants} initial="hidden" animate="visible">
-              {lines.map((line, i) => (
-                <motion.div key={i} variants={lineVariants} style={{ lineHeight: 1.61}}>
-                  {line}
-                </motion.div>
-              ))}
-            </motion.div>
+        {!solved
+          ? <div className="text">
+              Read the letter carefully and use the clues to fill in missing details and uncover the secret message.
+            </div>
+          : <motion.div className="text"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.div variants={containerVariants} initial="hidden" animate="visible">
+                {lines.map((line, i) => (
+                  <motion.div key={i} variants={lineVariants} style={{ lineHeight: 1.61}}>
+                    {line}
+                  </motion.div>
+                ))}
+              </motion.div>
 
-            <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
-          </motion.div>
+              <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
+            </motion.div>
         }
       </div>
 

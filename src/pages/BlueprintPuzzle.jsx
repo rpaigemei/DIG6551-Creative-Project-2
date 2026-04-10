@@ -84,26 +84,25 @@ export function BlueprintPuzzle({ onSolved }) {
         <img src={BlueprintNote} className="title" />
         <img src={PopupNote} className="note"/>
 
-        {!solved ?
-          <div className="text">
-            Rotate and align the rooms on this blueprint to understand the mansion’s structure.
-          </div>
-          :
-          <motion.div className="text"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div variants={containerVariants} initial="hidden" animate="visible">
-              {lines.map((line, i) => (
-                <motion.div key={i} variants={lineVariants}>
-                  {line}
-                </motion.div>
-              ))}
-            </motion.div>
+        {!solved
+          ? <div className="text">
+              Rotate and align the rooms on this blueprint to understand the mansion’s structure.
+            </div>
+          : <motion.div className="text"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.div variants={containerVariants} initial="hidden" animate="visible">
+                {lines.map((line, i) => (
+                  <motion.div key={i} variants={lineVariants}>
+                    {line}
+                  </motion.div>
+                ))}
+              </motion.div>
 
-            <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
-          </motion.div>
+              <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
+            </motion.div>
         }
       </div>
 
