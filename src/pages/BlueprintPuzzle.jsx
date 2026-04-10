@@ -1,40 +1,40 @@
-import { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { motion } from 'motion/react'
-import { containerVariants, lineVariants } from '../components/text-fade-in'
+import { useEffect, useState } from "react"
+import { NavLink } from "react-router-dom"
+import { motion } from "motion/react"
+import { containerVariants, lineVariants } from "../components/text-fade-in"
 
-import R1C1 from '../assets/blueprint/1-1.png'
-import R1C2 from '../assets/blueprint/1-2.png'
-import R1C3 from '../assets/blueprint/1-3.png'
-import R1C4 from '../assets/blueprint/1-4.png'
-import R1C5 from '../assets/blueprint/1-5.png'
-import R1C6 from '../assets/blueprint/1-6.png'
-import R2C1 from '../assets/blueprint/2-1.png'
-import R2C2 from '../assets/blueprint/2-2.png'
-import R2C3 from '../assets/blueprint/2-3.png'
-import R2C4 from '../assets/blueprint/2-4.png'
-import R2C5 from '../assets/blueprint/2-5.png'
-import R2C6 from '../assets/blueprint/2-6.png'
-import R3C1 from '../assets/blueprint/3-1.png'
-import R3C2 from '../assets/blueprint/3-2.png'
-import R3C3 from '../assets/blueprint/3-3.png'
-import R3C4 from '../assets/blueprint/3-4.png'
-import R3C5 from '../assets/blueprint/3-5.png'
-import R3C6 from '../assets/blueprint/3-6.png'
-import R4C1 from '../assets/blueprint/4-1.png'
-import R4C2 from '../assets/blueprint/4-2.png'
-import R4C3 from '../assets/blueprint/4-3.png'
-import R4C4 from '../assets/blueprint/4-4.png'
-import R4C5 from '../assets/blueprint/4-5.png'
-import R4C6 from '../assets/blueprint/4-6.png'
-import R5C1 from '../assets/blueprint/5-1.png'
-import R5C2 from '../assets/blueprint/5-2.png'
-import R5C3 from '../assets/blueprint/5-3.png'
-import R5C4 from '../assets/blueprint/5-4.png'
-import R5C5 from '../assets/blueprint/5-5.png'
-import R5C6 from '../assets/blueprint/5-6.png'
-import BlueprintNote from '../assets/notes/blueprint-note.png'
-import PopupNote from '../assets/notes/popup-note.png'
+import R1C1 from "../assets/blueprint/1-1.png"
+import R1C2 from "../assets/blueprint/1-2.png"
+import R1C3 from "../assets/blueprint/1-3.png"
+import R1C4 from "../assets/blueprint/1-4.png"
+import R1C5 from "../assets/blueprint/1-5.png"
+import R1C6 from "../assets/blueprint/1-6.png"
+import R2C1 from "../assets/blueprint/2-1.png"
+import R2C2 from "../assets/blueprint/2-2.png"
+import R2C3 from "../assets/blueprint/2-3.png"
+import R2C4 from "../assets/blueprint/2-4.png"
+import R2C5 from "../assets/blueprint/2-5.png"
+import R2C6 from "../assets/blueprint/2-6.png"
+import R3C1 from "../assets/blueprint/3-1.png"
+import R3C2 from "../assets/blueprint/3-2.png"
+import R3C3 from "../assets/blueprint/3-3.png"
+import R3C4 from "../assets/blueprint/3-4.png"
+import R3C5 from "../assets/blueprint/3-5.png"
+import R3C6 from "../assets/blueprint/3-6.png"
+import R4C1 from "../assets/blueprint/4-1.png"
+import R4C2 from "../assets/blueprint/4-2.png"
+import R4C3 from "../assets/blueprint/4-3.png"
+import R4C4 from "../assets/blueprint/4-4.png"
+import R4C5 from "../assets/blueprint/4-5.png"
+import R4C6 from "../assets/blueprint/4-6.png"
+import R5C1 from "../assets/blueprint/5-1.png"
+import R5C2 from "../assets/blueprint/5-2.png"
+import R5C3 from "../assets/blueprint/5-3.png"
+import R5C4 from "../assets/blueprint/5-4.png"
+import R5C5 from "../assets/blueprint/5-5.png"
+import R5C6 from "../assets/blueprint/5-6.png"
+import BlueprintNote from "../assets/notes/blueprint-note.png"
+import PopupNote from "../assets/notes/popup-note.png"
 
 const blueprintGrid = [
   R1C1, R1C2, R1C3, R1C4, R1C5, R1C6,
@@ -72,29 +72,29 @@ export function BlueprintPuzzle({ onSolved }) {
   }, [rotations, solved, onSolved])
 
   const lines = [
-    'Rotating the mansion blueprint',
-    'shows how the rooms and hallways',
-    'connect. There seems to be a space',
-    'here that shouldn’t be…'
+    "Rotating the mansion blueprint",
+    "shows how the rooms and hallways",
+    "connect. There seems to be a space",
+    "here that shouldn't be…"
   ]
 
   return (
-    <div className='puzzle-page'>
-      <div className='ui'>
-        <img src={BlueprintNote} className='title' />
-        <img src={PopupNote} className='note'/>
+    <div className="puzzle-page">
+      <div className="ui">
+        <img src={BlueprintNote} className="title" />
+        <img src={PopupNote} className="note"/>
 
         {!solved ?
-          <div className='text'>
+          <div className="text">
             Rotate and align the rooms on this blueprint to understand the mansion’s structure.
           </div>
           :
-          <motion.div className='text'
+          <motion.div className="text"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div variants={containerVariants} initial='hidden' animate='visible'>
+            <motion.div variants={containerVariants} initial="hidden" animate="visible">
               {lines.map((line, i) => (
                 <motion.div key={i} variants={lineVariants}>
                   {line}
@@ -102,15 +102,15 @@ export function BlueprintPuzzle({ onSolved }) {
               ))}
             </motion.div>
 
-            <NavLink to='/' end className='back'> Back to evidence board -&gt; </NavLink>
+            <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
           </motion.div>
         }
       </div>
 
       {/* blueprint rotation puzzle */}
-      <div className='blueprint-grid'>
+      <div className="blueprint-grid">
         {blueprintGrid.map((img, i) => (
-          <img key={i} src={img} className='cell' onClick={() => !solved && handleClick(i)} style={{ transform: `rotate(${rotations[i]}deg)`}} />
+          <img key={i} src={img} className="cell" onClick={() => !solved && handleClick(i)} style={{ transform: `rotate(${rotations[i]}deg)`}} />
         ))}
       </div>
     </div>

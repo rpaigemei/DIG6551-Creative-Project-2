@@ -1,25 +1,25 @@
 @font-face {
-  font-family: 'Biro';
-  src: url('assets/fonts/BiroScript.ttf') format('truetype');
+  font-family: "Biro";
+  src: url("assets/fonts/BiroScript.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Fira';
-  src: url('assets/fonts/FiraCode.ttf') format('truetype');
+  font-family: "Fira";
+  src: url("assets/fonts/FiraCode.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Phont';
-  src: url('assets/fonts/Phont.ttf') format('truetype');
+  font-family: "Phont";
+  src: url("assets/fonts/Phont.ttf") format("truetype");
 }
 
 :root {
   --color-1: #c32221;
   --color-2: #5a9947;
 
-  --font-main: 'Biro';
-  --font-code: 'Fira';
-  --font-letter: 'Phont';
+  --font-main: "Biro";
+  --font-code: "Fira";
+  --font-letter: "Phont";
 }
 
 body {
@@ -45,7 +45,7 @@ a {
   height: 100vh;
   width: 100vw;
 
-  background-image: url('./assets/corkboard.png');
+  background-image: url("./assets/corkboard.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -60,7 +60,7 @@ a {
   align-items: center;
   gap: 1rem;
 
-  background-image: url('./assets/evidence.png');
+  background-image: url("./assets/evidence.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -178,7 +178,7 @@ a {
     align-items: center;
     padding: 1rem;
 
-    background-image: url('./assets/notes/clue-note.png');
+    background-image: url("./assets/notes/clue-note.png");
     aspect-ratio: 500 / 355; 
     background-size: cover;
 
@@ -223,11 +223,11 @@ a {
   gap: 2rem;
 
   #btn-1 {
-    background-image: url('./assets/tape-1.png');
+    background-image: url("./assets/tape-1.png");
   }
 
   #btn-2 {
-    background-image: url('./assets/tape-2.png');
+    background-image: url("./assets/tape-2.png");
   }
 
   .button {

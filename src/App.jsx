@@ -1,13 +1,13 @@
-import './index.css'
+import "./index.css"
 
-import { useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'motion/react';
+import { useState } from "react"
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "motion/react";
 
-import { Home } from './pages/Home'
-import { LetterPuzzle } from './pages/LetterPuzzle';
-import { BlueprintPuzzle } from './pages/BlueprintPuzzle';
-import { ConnectPuzzle } from './pages/ConnectPuzzle';
+import { Home } from "./pages/Home"
+import { LetterPuzzle } from "./pages/LetterPuzzle";
+import { BlueprintPuzzle } from "./pages/BlueprintPuzzle";
+import { ConnectPuzzle } from "./pages/ConnectPuzzle";
 
 function MotionDiv({ children }) {
   return (
@@ -37,8 +37,8 @@ function App() {
   };
 
   return (
-    <div className='app'>
-      <AnimatePresence mode='wait'>
+    <div className="app">
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={ <MotionDiv> <Home solved={solved} /> </MotionDiv> } />
           <Route path="/connect" element={ <MotionDiv> <ConnectPuzzle onSolved={() => markSolved("connect")} /> </MotionDiv> } />

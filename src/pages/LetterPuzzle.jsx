@@ -4,7 +4,6 @@ import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
 import LetterNote from "../assets/notes/letter-note.png"
 import PopupNote from "../assets/notes/popup-note.png"
-import InputPaper from "../assets/input-paper.png"
 
 export function LetterPuzzle({ onSolved }) {
   const [clues, setClues] = useState([
@@ -119,7 +118,7 @@ export function LetterPuzzle({ onSolved }) {
           </div>
         </div>
 
-        <input className={`input ${solved && 'disabled'}`} type="text" value={guess} onChange={handleChange} disabled={solved ? true : false} placeholder="Type any answer..." />
+        <input className={`input ${solved && "disabled"}`} type="text" value={guess} onChange={handleChange} disabled={solved ? true : false} placeholder="Type any answer..." />
       </div>
     </div>
   )
