@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
-import LetterNote from "../assets/notes/letter-note.png"
-import PopupNote from "../assets/notes/popup-note.png"
+import LetterNote from "../assets/images/notes/letter.png"
+import PopupNote from "../assets/images/paper/ui.png"
 
 export function LetterPuzzle({ onSolved }) {
   const [clues, setClues] = useState([

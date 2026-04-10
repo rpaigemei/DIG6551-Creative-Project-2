@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom"
-
-import BlueprintNote from "../assets/notes/blueprint-note.png"
-import LetterNote from "../assets/notes/letter-note.png"
-import ConnectNote from "../assets/notes/connect-note.png"
-import BlueprintNoteSolved from "../assets/notes/blueprint-note-solved.png"
-import LetterNoteSolved from "../assets/notes/letter-note-solved.png"
-import ConnectNoteSolved from "../assets/notes/connect-note-solved.png"
+import ConnectNote from "../assets/images/notes/connect.png"
+import ConnectNoteSolved from "../assets/images/notes/connect-solved.png"
+import BlueprintNote from "../assets/images/notes/blueprint.png"
+import BlueprintNoteSolved from "../assets/images/notes/blueprint-solved.png"
+import LetterNote from "../assets/images/notes/letter.png"
+import LetterNoteSolved from "../assets/images/notes/letter-solved.png"
 
 export function Home({ solved }) {
   return (

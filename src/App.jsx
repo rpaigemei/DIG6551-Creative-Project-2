@@ -1,9 +1,7 @@
 import "./index.css"
-
 import { useState } from "react"
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
-
 import { Home } from "./pages/Home"
 import { LetterPuzzle } from "./pages/LetterPuzzle";
 import { BlueprintPuzzle } from "./pages/BlueprintPuzzle";

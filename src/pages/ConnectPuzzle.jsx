@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
-import ConnectNote from "../assets/notes/connect-note.png"
-import PopupNote from "../assets/notes/popup-note.png"
+import ConnectNote from "../assets/images/notes/connect.png"
+import PopupNote from "../assets/images/paper/ui.png"
 
 const categories = [
   {id: 0, category: "Property must be abandoned"},
