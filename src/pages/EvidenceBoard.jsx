@@ -30,7 +30,7 @@ export function EvidenceBoard({ solved }) {
           {instructions}
         </NavLink>
         <div className="nav">
-          <NavLink to="letter" onClick={(e) => solved.connect && e.preventDefault()} className={`note ${solved.connect ? "solved" : "unsolved"}`}>
+          <NavLink to="connect" onClick={(e) => solved.connect && e.preventDefault()} className={`note ${solved.connect ? "solved" : "unsolved"}`}>
             <img src={solved.connect ? ConnectNoteSolved : ConnectNote} className="note unsolved" />
           </NavLink>
 
