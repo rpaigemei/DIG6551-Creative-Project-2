@@ -30,26 +30,17 @@ export function EvidenceBoard({ solved }) {
           {instructions}
         </NavLink>
         <div className="nav">
-          {solved.connect
-            ? <img src={ConnectNoteSolved} className="note solved" />
-            : <NavLink to="connect">
-                <img src={ConnectNote} className="note unsolved" />
-              </NavLink>
-          }
+          <NavLink to="letter" onClick={(e) => solved.connect && e.preventDefault()} className={`note ${solved.connect ? "solved" : "unsolved"}`}>
+            <img src={solved.connect ? ConnectNoteSolved : ConnectNote} className="note unsolved" />
+          </NavLink>
 
-          {solved.blueprint
-            ? <img src={BlueprintNoteSolved} className="note solved" />
-            : <NavLink to="blueprint">
-                <img src={BlueprintNote} className="note unsolved" />
-              </NavLink>
-          }
-
-          {solved.letter
-            ? <img src={LetterNoteSolved} className="note solved" />
-            : <NavLink to="letter">
-                <img src={LetterNote} className="note unsolved" />
-              </NavLink>
-          }
+          <NavLink to="blueprint" onClick={(e) => solved.blueprint && e.preventDefault()} className={`note ${solved.blueprint ? "solved" : "unsolved"}`}>
+            <img src={solved.blueprint ? BlueprintNoteSolved : BlueprintNote} className="note unsolved" />
+          </NavLink>
+          
+          <NavLink to="letter" onClick={(e) => solved.letter && e.preventDefault()} className={`note ${solved.letter ? "solved" : "unsolved"}`}>
+            <img src={solved.letter ? LetterNoteSolved : LetterNote} className="note unsolved" />
+          </NavLink>
         </div>
       </div>
     </div>
