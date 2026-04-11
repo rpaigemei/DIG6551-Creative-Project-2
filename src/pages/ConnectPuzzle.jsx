@@ -4,7 +4,6 @@ import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
 import ConnectNote from "../assets/images/notes/connect.png"
 import Note from "../assets/images/paper/ui.png"
-import CluePaper from "../assets/images/paper/clue.png"
 
 const categories = [
   {id: 0, category: "Property must be abandoned"},
@@ -177,7 +176,7 @@ export function ConnectPuzzle({ onSolved }) {
                   transition={{ duration: 0.8 }}
                   className="back"
                 >
-                  <NavLink to="/" end> Back to evidence board -&gt; </NavLink>
+                  <NavLink to="/evidence-board" end> Back to evidence board -&gt; </NavLink>
                 </motion.div>
               }
             </motion.div>

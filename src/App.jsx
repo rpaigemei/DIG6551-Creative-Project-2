@@ -2,10 +2,12 @@ import "./index.css"
 import { useState } from "react"
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { Home } from "./pages/Home"
+import { StartPage } from "./pages/StartPage";
+import { EvidenceBoard } from "./pages/EvidenceBoard"
 import { LetterPuzzle } from "./pages/LetterPuzzle";
 import { BlueprintPuzzle } from "./pages/BlueprintPuzzle";
 import { ConnectPuzzle } from "./pages/ConnectPuzzle";
+import { EndPage } from "./pages/EndPage";
 
 function MotionDiv({ children }) {
   return (
@@ -38,10 +40,12 @@ function App() {
     <div className="app">
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={ <MotionDiv> <Home solved={solved} /> </MotionDiv> } />
-          <Route path="/connect" element={ <MotionDiv> <ConnectPuzzle onSolved={() => markSolved("connect")} /> </MotionDiv> } />
-          <Route path="/blueprint" element={ <MotionDiv> <BlueprintPuzzle onSolved={() => markSolved("blueprint")} /> </MotionDiv> } />
-          <Route path="/letter" element={ <MotionDiv> <LetterPuzzle onSolved={() => markSolved("letter")} /> </MotionDiv> } />
+          <Route path="/" element={ <MotionDiv> <StartPage /> </MotionDiv> } />
+          <Route path="/evidence-board" element={ <MotionDiv> <EvidenceBoard solved={solved} /> </MotionDiv> } />
+          <Route path="/evidence-board/connect" element={ <MotionDiv> <ConnectPuzzle onSolved={() => markSolved("connect")} /> </MotionDiv> } />
+          <Route path="/evidence-board/blueprint" element={ <MotionDiv> <BlueprintPuzzle onSolved={() => markSolved("blueprint")} /> </MotionDiv> } />
+          <Route path="/evidence-board/letter" element={ <MotionDiv> <LetterPuzzle onSolved={() => markSolved("letter")} /> </MotionDiv> } />
+          <Route path="/case-closed" element={ <MotionDiv> <EndPage /> </MotionDiv> } />
         </Routes>
       </AnimatePresence>
     </div>

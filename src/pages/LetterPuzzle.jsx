@@ -98,7 +98,7 @@ export function LetterPuzzle({ onSolved }) {
                 ))}
               </motion.div>
 
-              <NavLink to="/" end className="back"> Back to evidence board -&gt; </NavLink>
+              <NavLink to="/evidence-board" end className="back"> Back to evidence board -&gt; </NavLink>
             </motion.div>
         }
       </div>
