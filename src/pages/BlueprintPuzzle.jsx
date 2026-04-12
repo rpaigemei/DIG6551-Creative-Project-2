@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
 import { blueprintGrid } from "../components/blueprint-grid"
+import { playWritingLong } from "../components/play-audio"
 import BlueprintNote from "../assets/images/notes/blueprint.png"
 import PopupNote from "../assets/images/paper/ui.png"
 
@@ -29,6 +30,7 @@ export function BlueprintPuzzle({ onSolved }) {
 
     if (isSolved && !solved) {
       setSolved(true);
+      playWritingLong();
       onSolved?.();
     }
   }, [rotations, solved, onSolved])

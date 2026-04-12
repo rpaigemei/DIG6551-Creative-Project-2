@@ -26,7 +26,7 @@ export function StartPage() {
           scale: 1,
         }}
         transition={{
-          duration: 2,
+          duration: 1.6,
           ease: [0.16, 1, 0.3, 1],
         }}
       />

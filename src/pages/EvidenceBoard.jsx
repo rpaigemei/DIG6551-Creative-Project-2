@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
+import { playNewspaper } from "../components/play-audio"
 import Evidence from "../assets/images/bg/evidence.png"
 import ConnectNote from "../assets/images/notes/connect.png"
 import ConnectNoteSolved from "../assets/images/notes/connect-solved.png"
@@ -7,8 +8,6 @@ import BlueprintNote from "../assets/images/notes/blueprint.png"
 import BlueprintNoteSolved from "../assets/images/notes/blueprint-solved.png"
 import LetterNote from "../assets/images/notes/letter.png"
 import LetterNoteSolved from "../assets/images/notes/letter-solved.png"
-
-// Click each question to examine the clues.
 
 export function EvidenceBoard({ solved }) {
   const [allSolved, setAllSolved] = useState(false);
@@ -26,7 +25,7 @@ export function EvidenceBoard({ solved }) {
       <img src={Evidence} className="board" />
 
       <div className="board-notes">
-        <NavLink to="/case-closed" onClick={(e) => !allSolved && e.preventDefault()} className={`instructions ${allSolved && "allSolved"}`}>
+        <NavLink to="/case-closed" onClick={(e) => (!allSolved ? e.preventDefault() : playNewspaper())} className={`instructions ${allSolved && "allSolved"}`}>
           {instructions}
         </NavLink>
         <div className="nav">

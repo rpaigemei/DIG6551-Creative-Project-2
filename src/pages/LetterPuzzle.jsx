@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
+import { playWritingLong, playWritingShort } from "../components/play-audio"
 import LetterNote from "../assets/images/notes/letter.png"
 import PopupNote from "../assets/images/paper/ui.png"
 
@@ -55,6 +56,7 @@ export function LetterPuzzle({ onSolved }) {
     )
 
     setGuess("");
+    playWritingShort();
   }
 
   const [solved, setSolved] = useState(false);
@@ -64,6 +66,7 @@ export function LetterPuzzle({ onSolved }) {
 
     if (isSolved && !solved) {
       setSolved(true);
+      playWritingLong();
       onSolved?.();
     }
   }, [clues, solved, onSolved])

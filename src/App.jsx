@@ -2,6 +2,7 @@ import "./index.css"
 import { useState } from "react"
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
+import { TitlePage } from "./pages/TitlePage";
 import { StartPage } from "./pages/StartPage";
 import { EvidenceBoard } from "./pages/EvidenceBoard"
 import { LetterPuzzle } from "./pages/LetterPuzzle";
@@ -40,7 +41,8 @@ function App() {
     <div className="app">
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={ <MotionDiv> <StartPage /> </MotionDiv> } />
+          <Route path="/" element={ <MotionDiv> <TitlePage /> </MotionDiv> } />
+          <Route path="/unsolved-case" element={ <MotionDiv> <StartPage /> </MotionDiv> } />
           <Route path="/evidence-board" element={ <MotionDiv> <EvidenceBoard solved={solved} /> </MotionDiv> } />
           <Route path="/evidence-board/connect" element={ <MotionDiv> <ConnectPuzzle onSolved={() => markSolved("connect")} /> </MotionDiv> } />
           <Route path="/evidence-board/blueprint" element={ <MotionDiv> <BlueprintPuzzle onSolved={() => markSolved("blueprint")} /> </MotionDiv> } />

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import { motion } from "motion/react"
 import { containerVariants, lineVariants } from "../components/text-fade-in"
+import { playError, playWritingShort } from "../components/play-audio"
 import ConnectNote from "../assets/images/notes/connect.png"
 import Note from "../assets/images/paper/ui.png"
 
@@ -109,13 +110,14 @@ export function ConnectPuzzle({ onSolved }) {
       );
 
       setSelectedClues([]);
-
+      playError();
       setTimeout(() => setShakeIDs([]), 400);
 
       return;
     }
 
     setPulseIDs(ids);
+    playWritingShort();
     setTimeout(() => setPulseIDs([]), 350);
 
     setShuffledClues(prev => {
