@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { playNewspaper } from "../components/play-audio"
+import { playRingtone } from "../components/play-audio"
 import Title from "../assets/images/bg/title.png"
 import PlayBtn from "../assets/images/bg/play.png"
 
@@ -8,7 +8,7 @@ export function TitlePage() {
     <div className="title-page">
       <img src={Title} className="title" />
 
-      <NavLink to="/unsolved-case" end onClick={() => playNewspaper()}>
+      <NavLink to="/unsolved-case" end onClick={() => playRingtone()}>
         <img src={PlayBtn} className="play" />
       </NavLink>
     </div>

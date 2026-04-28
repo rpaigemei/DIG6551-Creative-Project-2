@@ -6,6 +6,7 @@ import writingShort3 from "../assets/audios/writing-short-3.m4a"
 import writingShort4 from "../assets/audios/writing-short-4.m4a"
 import writingShort5 from "../assets/audios/writing-short-5.m4a"
 import newspaper from "../assets/audios/newspaper.m4a"
+import ringtone from "../assets/audios/ringtone.m4a"
 
 export const playError = () => {
   const audio = new Audio(errorSound);
@@ -36,3 +37,15 @@ export const playNewspaper = () => {
   const audio = new Audio(newspaper);
   audio.play();
 };
+
+let ringtoneAudio;
+
+export const playRingtone = () => {
+  ringtoneAudio = new Audio(ringtone);
+  ringtoneAudio.loop = true;
+  ringtoneAudio.play();
+}
+
+export const stopRingtone = () => {
+  ringtoneAudio?.pause();
+}
