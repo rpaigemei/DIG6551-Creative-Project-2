@@ -5,6 +5,8 @@ import { containerVariants, lineVariants } from "../components/text-fade-in"
 import { playError, playWritingShort } from "../components/play-audio"
 import ConnectNote from "../assets/images/notes/connect.png"
 import Note from "../assets/images/paper/ui.png"
+import Hint from "../assets/images/paper/hint.png"
+import Shuffle from "../assets/images/paper/shuffle.png"
 
 const categories = [
   {id: 0, category: "Property must be abandoned"},
@@ -35,15 +37,67 @@ const clues = [
   {id: 16, note: "Layout differs from blueprint", category: 3, selected: false, connected: false},
 ];
 
+const shuffleClues = (array) => {
+  return [...array]
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+}
+
 export function ConnectPuzzle({ onSolved }) {
   const [lines, setLines] = useState([]);
 
-  const [shuffledClues, setShuffledClues] = useState(() => 
-    clues
-      .map(value => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value)
-  );
+  const [hintIDs, setHintIDs] = useState([]);
+  const [usedHintCategories, setUsedHintCategories] = useState([]);
+  
+  const hint = {
+    hint: {
+      scale: [1, 1.02, 1],
+      transition: {
+        duration: 1.2,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const handleHint = () => {
+    if (usedHintCategories.length >= 4) {
+      return;
+    }
+
+    const availableCategories = categories
+      .map(c => c.id)
+      .filter(cat => !usedHintCategories.includes(cat) && shuffledClues.some(c => c.category === cat && !c.connected));
+    
+    if (availableCategories.length === 0) {
+      return;
+    }
+
+    const randomCategory = availableCategories[Math.floor(Math.random() * availableCategories.length)];
+
+    const pair = shuffledClues
+      .filter(c => c.category === randomCategory && !c.connected).slice(0,2);
+    
+    setHintIDs(pair.map(p => p.id));
+    setUsedHintCategories(prev => [...prev, randomCategory]);
+  }
+
+  const [shuffledClues, setShuffledClues] = useState(() => shuffleClues(clues));
+
+  const handleShuffle = () => {
+    setSelectedClues([]);
+
+    setShuffledClues(prev => {
+      const unsolved = prev.filter(c => !c.connected);
+      const shuffledUnsolved = shuffleClues(unsolved);
+
+      let i = 0;
+      return prev.map(clue =>
+        clue.connected ? clue : shuffledUnsolved[i++]
+      );
+    });
+  };
 
   const [shakeIDs, setShakeIDs] = useState([]);
   const shake = {
@@ -136,6 +190,7 @@ export function ConnectPuzzle({ onSolved }) {
     const line = selectedClues[0].category;
     setLines(prev => [...prev, categories[line].category])
 
+    setHintIDs([]);
     setSelectedClues([]);
   }
 
@@ -187,15 +242,26 @@ export function ConnectPuzzle({ onSolved }) {
 
       {/* connect strings puzzle */}
       <div className="puzzle">
+        <div className="tools">
+          <div className="tool shuffle">
+            <img src={Shuffle} className="icon active" onClick={() => handleShuffle()} />
+          </div>
+          <div className="tool hint">
+            <img src={Hint} className={`icon ${usedHintCategories.length >= 4 ? "disabled" : "active"}`} onClick={() => handleHint()} />
+          </div>
+        </div>
         <div className="connect-clues">
           {shuffledClues.map((clue) => (
             <motion.div
-              variants={{...shake, ...pulse}}
+              key={clue.id}
+              variants={{...shake, ...pulse, ...hint}}
               animate={shakeIDs.includes(clue.id)
                 ? "shake"
                 : pulseIDs.includes(clue.id)
                   ? "pulse"
-                  : ""
+                  : hintIDs.includes(clue.id)
+                    ? "hint"
+                    : ""
               }
             >
               <div className={`clue ${clue.selected && "selected"} ${clue.connected && "connected"}`} onClick={() => !clue.connected && handleClick(clue)}>
