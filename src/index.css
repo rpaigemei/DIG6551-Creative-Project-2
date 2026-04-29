@@ -72,7 +72,7 @@ a {
   gap: 1.5rem;
 
   .board {
-    height: 48rem;
+    height: 100%;
 
     position: absolute;
     z-index: 0;
