@@ -12,12 +12,12 @@ Play *Clued In* [here](https://clued-in.netlify.app/).
 
 #### How To Play
 
-In *Clued In*,  players can complete three puzzles on the evidence board in any order. Each puzzle reveals a different piece of information about the disappearance in the form of detective-style insight notes. After each puzzle is completed, players will navigate back to the evidence board. 
+In *Clued In*,  players can complete three puzzles on the evidence board in any order. Each puzzle reveals a different piece of information about the disappearance in the form of detective-style insight notes. After each puzzle is completed, players will navigate back to the evidence board. If a puzzle has been solved, they can click on the puzzle's note from the evidence board to view the gathered evidence.
 
 The game requires a mouse and keyboard to play.
 
 ##### "How does it connect?"
-Players will group 16 clues into categories by selecting four at a time and submitting their choices. If they are correct, the clues will fade slightly and turn green, and the category will be revealed. If they are incorrect, the clues will shake briefly with a sound effect and automatically deselect. 
+Players will group 16 clues into categories by selecting four at a time and submitting their choices. If they are correct, the clues will fade slightly and turn green, and the category will be revealed. If they are incorrect, the clues will shake briefly with a sound effect and automatically deselect. Players can use the toolbar at the top to shuffle unsovled clue cards and ask for hints.
 
 | Abandoned Property | Careful Setup | Secret Communication | Hidden Room |
 |:------:|:------:|:------:|:------:|
