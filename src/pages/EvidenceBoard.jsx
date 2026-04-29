@@ -24,23 +24,22 @@ export function EvidenceBoard({ solved }) {
     <div className="evidence-board">
       <img src={Evidence} className="board" />
 
-      <div className="board-notes">
-        <NavLink to="/case-closed" onClick={(e) => (!allSolved ? e.preventDefault() : playNewspaper())} className={`instructions ${allSolved && "allSolved"}`}>
-          {instructions}
+      <NavLink to="/case-closed" onClick={(e) => (!allSolved ? e.preventDefault() : playNewspaper())} className={`instructions ${allSolved && "allSolved"}`}>
+        {instructions}
+      </NavLink>
+        
+      <div className="nav">
+        <NavLink to="connect" className={`note ${solved.connect ? "solved" : "unsolved"}`}>
+          <img src={solved.connect ? ConnectNoteSolved : ConnectNote} className="note unsolved" />
         </NavLink>
-        <div className="nav">
-          <NavLink to="connect" onClick={(e) => solved.connect && e.preventDefault()} className={`note ${solved.connect ? "solved" : "unsolved"}`}>
-            <img src={solved.connect ? ConnectNoteSolved : ConnectNote} className="note unsolved" />
-          </NavLink>
 
-          <NavLink to="blueprint" onClick={(e) => solved.blueprint && e.preventDefault()} className={`note ${solved.blueprint ? "solved" : "unsolved"}`}>
-            <img src={solved.blueprint ? BlueprintNoteSolved : BlueprintNote} className="note unsolved" />
-          </NavLink>
-          
-          <NavLink to="letter" onClick={(e) => solved.letter && e.preventDefault()} className={`note ${solved.letter ? "solved" : "unsolved"}`}>
-            <img src={solved.letter ? LetterNoteSolved : LetterNote} className="note unsolved" />
-          </NavLink>
-        </div>
+        <NavLink to="blueprint" onClick={(e) => solved.blueprint && e.preventDefault()} className={`note ${solved.blueprint ? "solved" : "unsolved"}`}>
+          <img src={solved.blueprint ? BlueprintNoteSolved : BlueprintNote} className="note unsolved" />
+        </NavLink>
+        
+        <NavLink to="letter" onClick={(e) => solved.letter && e.preventDefault()} className={`note ${solved.letter ? "solved" : "unsolved"}`}>
+          <img src={solved.letter ? LetterNoteSolved : LetterNote} className="note unsolved" />
+        </NavLink>
       </div>
     </div>
   )
